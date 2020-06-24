@@ -43,7 +43,7 @@
             <section>
                 <div class="banner">
                 <div class="banner-text-box"><h1 class="banner-text">Эффективные решения для вашего бизнеса</h1></div>
-                <button type="button" class="order" data-open-modal>Заказать услугу</button>
+                <button type="button" class="order" data-modal-open>Заказать услугу</button>
                 </div>
             </section>
 
@@ -295,55 +295,59 @@
                     </div>
                     <div class="subscribtion">
                     <b class="join-us">Подпишитесь на рассылку</b>
-                        <form>
-                            <label><input type="email" name="email" required placeholder="E-mail" class="footer-input"></label>
-                            <button class="subscribe-btn">Подписаться</button>
+                        <form class="footer-form js-speaker-form">
+                            <div class="form-field">
+                                <label for="mail-sub" class="mail-label">E-mail</label>
+                                <input type="email" name="mail-sub" id="mail-sub" class="footer-input" required>
+                            </div>
+                            <button type="submit" class="subscribe-btn">Подписаться
+                                <svg width="24" height="24"><use href="./images/sprite.svg#icon-send"></use></svg>
+                            </button>
                         </form>                       
                     </div>
                 </div>
             </div>
         </footer>
 
-        <div class="backdrop is-hidden" data-backdrop>
+        <div class="backdrop is-hidden" data-modal>
             <div class="modal">
               <b class="modal-header">Оставьте свои данные, мы вам перезвоним</b>
-              <form>
-                <label for="name" class="input-label form-name">Имя</label>
-                <input type="text" id="name" class="modal-input">
-                <label for="telephone" class="input-label form-phone">Телефон</label>
-                <input type="tel" id="telephone" class="modal-input">
-                <label for="email" class="input-label">Почта</label>
-                <input type="email" id="email" class="modal-input form-mail">
-                <label for="comment" class="input-label">Комментарий</label>
-                <textarea id="comment" class="modal-input"></textarea>
-                <label for="agreement-check"></label>
-                <input type="checkbox" name="" value="" id="agreement-check" class="">
-                <label for="" class="" >Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></label>
-                <button data-close-modal class="order">Отправить</button>
-                <button data-close-modal class="btn-close-modal"></button>
-            </form> 
+              <form class="form js-speaker-form">
+                    <div class="modal-form-field">
+                        <label for="name" class="input-label">
+                            <svg width="12" height="12" class="icon-modal"><use href="./images/sprite.svg#form-name"></use></svg>
+                        Имя</label>
+                        <input type="text" name="name" id="name" class="modal-input">
+                    </div>
+                    <div class="modal-form-field">
+                        <label for="tel" class="input-label">
+                            <svg width="14" height="14" class="icon-modal"><use href="./images/sprite.svg#form-tel"></use></svg>
+                        Телефон</label>
+                        <input type="tel" name="tel" id="tel" class="modal-input">
+                    </div>
+                    <div class="modal-form-field">
+                        <label for="mail" class="input-label">
+                            <svg width="16" height="12" class="icon-modal"><use href="./images/sprite.svg#form-mail"></use></svg>    
+                        Почта</label>
+                        <input type="email" name="mail" id="mail" class="modal-input">
+                    </div>
+                    <div class="modal-form-field">
+                        <label for="comment" class="input-label">Комментарий</label>
+                        <textarea name="comment" id="comment" class="modal-input comment"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <input type="checkbox" name="policy" id="policy">
+                        <label for="policy" class="">Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></label>
+                    </div>
+                    <button type="button" class="btn-close-modal" data-modal-close>
+                        <svg width="11" height="11"><use href="./images/sprite.svg#icon-close-modal"></use></svg>
+                    </button>
+                    <button type="submit" class="order submit">Отправить</button>
+                </form> 
             </div>
-          </div>
-      
-          <script>
-            const refs = {
-              openModalBtn: document.querySelector("[data-open-modal]"),
-              closeModalBtn: document.querySelector("[data-close-modal]"),
-              backdrop: document.querySelector("[data-backdrop]"),
-            };
-      
-            refs.openModalBtn.addEventListener("click", toggleModal);
-            refs.closeModalBtn.addEventListener("click", toggleModal);
-      
-            refs.backdrop.addEventListener("click", logBackdropClick);
-      
-            function toggleModal() {
-              refs.backdrop.classList.toggle("is-hidden");
-            }
-      
-            function logBackdropClick() {
-              console.log("Это клик в бекдроп");
-            }
-          </script>
+        </div>
+
+        <script src="./js/modal.js"></script>
+        <script src="./js/speaker-form.js"></script>
     </body>
 </html>
