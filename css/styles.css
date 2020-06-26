@@ -1093,11 +1093,20 @@ textarea + .input-label {
 }
 
 .checkbox {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
+  position: absolute; */
+
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 
 .checkbox-icon {
@@ -1110,6 +1119,8 @@ textarea + .input-label {
 
   border: 2px solid var(--logo-part-text);
   border-radius: 4px;
+
+  transition: var(--animation-period) var(--timing-function);
 }
 
 .checkbox:checked + .checkbox-icon {
@@ -1119,8 +1130,6 @@ textarea + .input-label {
   background-image: url('../images/check-tip.svg');
 
   background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 
   border-color: var(--main-accent);
 }
