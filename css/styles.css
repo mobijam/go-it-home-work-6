@@ -1114,13 +1114,15 @@ textarea + .input-label {
 
 .checkbox:checked + .checkbox-icon {
   background-origin: border-box;
-  border-color: var(--main-accent);
   background-color: var(--main-accent);
-  background-image: url('../images/icon-check.svg');
+
+  background-image: url('../images/check-tip.svg');
 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  border-color: var(--main-accent);
 }
 
 .submit {
