@@ -937,7 +937,7 @@ nav {
   
   width: 528px;
   height: 581px;
-  
+
   padding: 40px;
 
   background-color: #fff;
@@ -998,11 +998,10 @@ nav {
 
   display: inline-block;
 
-  margin-bottom: 29px;
+  margin-bottom: 28px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  overflow: hidden;
   
   font-size: 14px;
   line-height: 1.14;
@@ -1026,6 +1025,7 @@ nav {
 
 .modal-input {
   display: inline-block;
+
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 42px;
@@ -1041,26 +1041,91 @@ nav {
 .input-label {
   position: absolute;
   top: 12px;
-  left: 16px;
+  left: 42px;
+}
 
-  display: inline-flex;
-  align-items: center;
+.modal-form-field:hover .input-label {
+  transform: translateX(-32px) translateY(-32px);
+}
+
+.modal-form-field:hover textarea + .input-label {
+  transform: translateX(-8px) translateY(-32px);
 }
 
 .icon-modal {
-  display: inline-block;
-
-  margin-right: 9px;
+  position: absolute;
+  top: 11px;
+  left: 16px;
 }
 
-.comment {
+.modal-form-field > textarea
+{
   display: inline-block;
   padding: 12px 16px;
+  /* margin-bottom: 20px; */
 
   height: 120px;
 }
 
+.comment-field {
+margin-bottom: 20px;
+}
+
+textarea + .input-label {
+  left: 16px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-page-text);
+}
+
+.checkbox-label a {
+  color: var(--main-accent);
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+}
+
+.checkbox-icon {
+  display: inline-block;
+
+  margin-right: 7px;
+
+  width: 16px;
+  height: 15px;
+
+  border: 2px solid var(--logo-part-text);
+  border-radius: 4px;
+}
+
+.checkbox:checked + .checkbox-icon {
+  background-origin: border-box;
+  border-color: var(--main-accent);
+  background-color: var(--main-accent);
+  background-image: url('../images/icon-check.svg');
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .submit {
+  transform: translateX(124px);
+
   padding: 10px 56px;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
