@@ -1069,7 +1069,8 @@ nav {
   transition: var(--animation-period) var(--timing-function);
 }
 
-textarea:focus-within {
+textarea:focus-within,
+textarea:not(:placeholder-shown) {
   border-color: var(--main-accent);
 }
 
