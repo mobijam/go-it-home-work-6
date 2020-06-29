@@ -835,26 +835,6 @@ nav {
   display: flex;
 }
 
-.form-field {
-  position: relative;
-  display: flex;
-}
-
-.mail-label {
-  position: absolute;
-
-  top: 15px;
-  left: 16px;
-
-  display: inline-block;
-
-  font-size: 16px;
-  line-height: 1.25;
-  letter-spacing: 0.03em;
-
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .footer-input {
   display: inline-block;
 
@@ -870,6 +850,20 @@ nav {
   border-radius: 4px;
 
   background-color: transparent;
+
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .subscribe-btn {
@@ -935,8 +929,8 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   
-  width: 528px;
-  height: 581px;
+  max-width: 528px;
+  max-height: 581px;
 
   padding: 40px;
 
@@ -995,32 +989,8 @@ nav {
 /* Форма модального окна */
 .modal-form-field {
   position: relative;
-
   display: inline-block;
-
   margin-bottom: 28px;
-
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-
-  color: var(--primary-page-text);
-
-  fill: var(--bnf-icons-1);
-
-  transition: var(--animation-period) var(--timing-function);
-}
-
-.modal-form-field:hover,
-.modal-form-field:focus {
-  border-color: var(--main-accent);
-
-  color: var(--main-accent);
-  
-  fill: var(--main-accent);
 }
 
 .modal-input {
@@ -1034,41 +1004,60 @@ nav {
   width: 448px;
   height: 40px;
     
-  border: transparent;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
   resize: none;
+
+  transition: var(--animation-period) var(--timing-function);
+}
+
+.modal-input:focus-within,
+.modal-input:not(:placeholder-shown) {
+  border-color: var(--main-accent);
+}
+
+.modal-input:focus-within ~ .icon-modal,
+.modal-input:not(:placeholder-shown) ~ .icon-modal {
+  fill: var(--main-accent);
+}
+
+.modal-input:focus-within + .input-label,
+.modal-input:not(:placeholder-shown) + .input-label {
+  transform: translateX(-32px) translateY(-32px);
+  color: var(--main-accent);
 }
 
 .input-label {
   position: absolute;
   top: 12px;
   left: 42px;
-}
-
-.modal-form-field:hover .input-label {
-  transform: translateX(-32px) translateY(-32px);
-}
-
-.modal-form-field:hover textarea + .input-label {
-  transform: translateX(-8px) translateY(-32px);
+  color: var(--primary-page-text);
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
 }
 
 .icon-modal {
   position: absolute;
   top: 11px;
   left: 16px;
-}
-
-.modal-form-field > textarea
-{
-  display: inline-block;
-  padding: 12px 16px;
-  /* margin-bottom: 20px; */
-
-  height: 120px;
+  fill: var(--bnf-icons-1);
 }
 
 .comment-field {
-margin-bottom: 20px;
+  margin-bottom: 20px;
+  transition: var(--animation-period) var(--timing-function);
+}
+
+.comment-field > textarea {
+  display: inline-block;
+  padding: 12px 16px;
+  height: 120px;
+}
+
+.comment-field:focus-within textarea + .input-label {
+  transform: translateX(-8px) translateY(-32px);
 }
 
 textarea + .input-label {
@@ -1136,8 +1125,6 @@ textarea + .input-label {
 
 .submit {
   transform: translateX(124px);
-
   padding: 10px 56px;
-
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
